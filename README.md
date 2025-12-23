@@ -2,6 +2,8 @@
 
 API desenvolvida em .NET 10 que integra um chatbot com OpenAI GPT-4o-mini e ferramentas customizadas via UTCP (Universal Tool Call Protocol) para consulta de previsão do tempo.
 
+Esse projet é parte de [UTCP: um protocolo alternativo ao MCP para chamada de ferramentas](https://dev.to/wandealves/utcp-um-protocolo-alternativo-ao-mcp-para-chamada-de-ferramentas-5dnn)
+
 ## Funcionalidades
 
 - **Chat inteligente**: Integração com OpenAI GPT-4o-mini para processamento de linguagem natural
@@ -188,10 +190,6 @@ dotnet restore
 dotnet build
 ```
 
-### Erro 401 (Unauthorized) da OpenAI
-
-Verifique se a chave da API está correta no `appsettings.json`
-
 ### Erro de conexão HTTPS
 
 Em desenvolvimento, confie no certificado local:
@@ -201,8 +199,8 @@ dotnet dev-certs https --trust
 
 ## Licença
 
-[Especifique a licença do projeto]
+MIT
 
 ## Contribuindo
 
-[Instruções para contribuição, se aplicável]
+Wanderson
