@@ -1,13 +1,16 @@
 using API.Endpoints;
-using API.Services;
 using API.Models;
+using API.Services;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configurar OpenAI Settings
 builder.Services.Configure<OpenAISettings>(
-    builder.Configuration.GetSection("OpenAISettings"));
+    builder.Configuration.GetSection("OpenAI"));
+
+builder.Services.Configure<UTCPSettings>(
+    builder.Configuration.GetSection("UTCP"));
 
 builder.Services.AddOpenApi(options =>
 {
@@ -21,10 +24,7 @@ builder.Services.AddOpenApi(options =>
     });
 });
 
-builder.Services.AddHttpClient<IUtpcService, UtpcService>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7247/");
-});
+builder.Services.AddScoped<IUtcpService, UtcpService>();
 builder.Services.AddScoped<IChatService, ChatService>();
 
 var app = builder.Build();
@@ -41,5 +41,6 @@ app.UseHttpsRedirection();
 
 app.RegistrarChatEndpoints();
 app.RegistrarWeatherEndpoints();
+app.RegistrarDiscoveryEndpoints();
 
 app.Run();
