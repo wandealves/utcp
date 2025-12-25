@@ -89,30 +89,5 @@ public class ChatService : IChatService
         }
 
         return assistantMessage.Content[0].Text;
-
-        //var options = new ChatCompletionOptions();
-        //foreach (var tool in ToolService.GetTools())
-        //{
-        //    options.Tools.Add(tool);
-        //}
-        //var response = await _chat.CompleteChatAsync(messages, options);
-        //var assistantMessage = response.Value;
-        //if (assistantMessage.ToolCalls.Count > 0)
-        //{
-        //    var toolCall = assistantMessage.ToolCalls[0];
-        //    var argsJson = JsonSerializer.Deserialize<JsonElement>(toolCall.FunctionArguments.ToString());
-        //    var toolResult = await _utpcService.ExecuteAsync(
-        //        toolCall.FunctionName,
-        //        argsJson
-        //    );
-        //    messages.Add(new AssistantChatMessage(assistantMessage));
-        //    messages.Add(new ToolChatMessage(
-        //        toolCall.Id,
-        //        JsonSerializer.Serialize(toolResult)
-        //    ));
-        //    var finalResponse = await _chat.CompleteChatAsync(messages, options);
-        //    return finalResponse.Value.Content[0].Text;
-        //}
-        //return assistantMessage.Content[0].Text;
     }
 }
